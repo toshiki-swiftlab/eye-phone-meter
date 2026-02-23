@@ -4,7 +4,7 @@ import SwiftUI
 struct EyePhoneMeterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MeasurementView()
         }
     }
 }
