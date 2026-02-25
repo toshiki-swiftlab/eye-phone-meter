@@ -1,14 +1,11 @@
 import SwiftUI
+import RealityKit
 
 struct MeasurementView: View {
+    @Environment(ARSessionManager.self) private var sessionManager
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        ARViewContainer(sessionManager: sessionManager)
     }
 }
 
