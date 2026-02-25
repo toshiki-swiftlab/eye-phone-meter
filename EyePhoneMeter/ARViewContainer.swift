@@ -6,6 +6,7 @@ struct ARViewContainer: UIViewRepresentable {
     let sessionManager: ARSessionManager
     
     func makeUIView(context: Context) -> some UIView {
+        // 内部的にARSessionを生成
         let arView = ARView(frame: .zero)
         arView.session.delegate = sessionManager
         let config = ARFaceTrackingConfiguration()
