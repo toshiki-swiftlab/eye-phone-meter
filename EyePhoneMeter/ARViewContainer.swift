@@ -9,6 +9,7 @@ struct ARViewContainer: UIViewRepresentable {
         // 内部的にARSessionを生成
         let arView = ARView(frame: .zero)
         arView.session.delegate = sessionManager
+        // Faceにすることで内カメラ推奨になる
         let config = ARFaceTrackingConfiguration()
         arView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
         return arView
