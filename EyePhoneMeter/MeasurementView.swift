@@ -6,7 +6,6 @@ struct MeasurementView: View {
     @Environment(ARSessionManager.self) private var sessionManager
     
     var body: some View {
-        // サポートしてないなら、終了
         if ARFaceTrackingConfiguration.isSupported {
             VStack {
                 if sessionManager.distance <= 0 {
