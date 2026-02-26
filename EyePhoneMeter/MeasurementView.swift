@@ -6,6 +6,8 @@ struct MeasurementView: View {
     
     var body: some View {
         ARViewContainer(sessionManager: sessionManager)
+            .aspectRatio(3 / 4, contentMode: .fit)
+            .frame(maxWidth: .infinity)
     }
 }
 
