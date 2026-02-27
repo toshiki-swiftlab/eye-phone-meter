@@ -16,8 +16,8 @@
 
 /* Begin PBXFileReference section */
 		704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
-		704E0A232F4F292400366B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		704E0A212F4F239900366B4D /* EyePhoneMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePhoneMeter.swift; sourceTree = "<group>"; };
+		704E0A232F4F292400366B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		707E6C7D2F4C1C47008CC120 /* EyePhoneMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyePhoneMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		707E6C912F4C1FDE008CC120 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		707E6C922F4C1FDE008CC120 /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
@@ -62,12 +62,12 @@
 		707E6C942F4C1FDE008CC120 /* EyePhoneMeter */ = {
 			isa = PBXGroup;
 			children = (
-				704E0A232F4F292400366B4D /* Info.plist */,
 				707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */,
 				707E6C922F4C1FDE008CC120 /* MeasurementView.swift */,
 				704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */,
 				704E0A3B2F519F6800366B4D /* Model */,
 				707E6C912F4C1FDE008CC120 /* Assets.xcassets */,
+				704E0A232F4F292400366B4D /* Info.plist */,
 			);
 			path = EyePhoneMeter;
 			sourceTree = "<group>";
