@@ -12,6 +12,7 @@ struct ARViewContainer: UIViewRepresentable {
         // Faceにすることで内カメラ推奨になる
         let config = ARFaceTrackingConfiguration()
         config.worldAlignment = .camera
+        config.maximumNumberOfTrackedFaces = ARFaceTrackingConfiguration.supportedNumberOfTrackedFaces
         arView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
         return arView
     }

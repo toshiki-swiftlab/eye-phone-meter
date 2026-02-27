@@ -4,13 +4,22 @@ import Observation
 @Observable
 final class EyePhoneMeter: NSObject, ARSessionDelegate {
     var distance = 0
+    var status: EyePhoneMeterStatus = .normal
     
     // NOTE: 検証メモ
     // - 複数人映っても、anchors.count: 1
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        guard let faceAnchor = anchors.compactMap({ $0 as? ARFaceAnchor }).first else { return }
+        let faceAnchors = anchors.compactMap({ $0 as? ARFaceAnchor })
+        if 2 <= faceAnchors.count {
+            status = .multiplePeople
+            distance = 0
+            return
+        }
+        guard let faceAnchor = faceAnchors.first else { return }
+        
         // カメラ外（anchors.countは0にならない）
         if !faceAnchor.isTracked {
+            status = .notTracking
             distance = 0
             return
         }
@@ -27,6 +36,7 @@ final class EyePhoneMeter: NSObject, ARSessionDelegate {
         // UIを更新
         DispatchQueue.main.async {
             self.distance = Int(_distance * 100)
+            self.status = .normal
         }
     }
 }
