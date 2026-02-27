@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		704E0A202F4F20E300366B4D /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */; };
-		704E0A222F4F239900366B4D /* ARSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E0A212F4F239900366B4D /* ARSessionManager.swift */; };
+		704E0A222F4F239900366B4D /* EyePhoneMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E0A212F4F239900366B4D /* EyePhoneMeter.swift */; };
 		707E6C952F4C1FDE008CC120 /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707E6C922F4C1FDE008CC120 /* MeasurementView.swift */; };
 		707E6C962F4C1FDE008CC120 /* EyePhoneMeterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */; };
 		707E6C972F4C1FDE008CC120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707E6C912F4C1FDE008CC120 /* Assets.xcassets */; };
@@ -16,8 +16,8 @@
 
 /* Begin PBXFileReference section */
 		704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
-		704E0A212F4F239900366B4D /* ARSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionManager.swift; sourceTree = "<group>"; };
 		704E0A232F4F292400366B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		704E0A212F4F239900366B4D /* EyePhoneMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePhoneMeter.swift; sourceTree = "<group>"; };
 		707E6C7D2F4C1C47008CC120 /* EyePhoneMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyePhoneMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		707E6C912F4C1FDE008CC120 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		707E6C922F4C1FDE008CC120 /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
@@ -35,6 +35,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		704E0A3B2F519F6800366B4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				704E0A212F4F239900366B4D /* EyePhoneMeter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		707E6C742F4C1C47008CC120 = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +66,7 @@
 				707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */,
 				707E6C922F4C1FDE008CC120 /* MeasurementView.swift */,
 				704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */,
-				704E0A212F4F239900366B4D /* ARSessionManager.swift */,
+				704E0A3B2F519F6800366B4D /* Model */,
 				707E6C912F4C1FDE008CC120 /* Assets.xcassets */,
 			);
 			path = EyePhoneMeter;
@@ -139,7 +147,7 @@
 				707E6C952F4C1FDE008CC120 /* MeasurementView.swift in Sources */,
 				707E6C962F4C1FDE008CC120 /* EyePhoneMeterApp.swift in Sources */,
 				704E0A202F4F20E300366B4D /* ARViewContainer.swift in Sources */,
-				704E0A222F4F239900366B4D /* ARSessionManager.swift in Sources */,
+				704E0A222F4F239900366B4D /* EyePhoneMeter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
