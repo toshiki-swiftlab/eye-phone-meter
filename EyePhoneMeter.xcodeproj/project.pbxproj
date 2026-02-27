@@ -43,6 +43,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		704E0A3C2F51A77D00366B4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				707E6C922F4C1FDE008CC120 /* MeasurementView.swift */,
+				704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		707E6C742F4C1C47008CC120 = {
 			isa = PBXGroup;
 			children = (
@@ -63,11 +72,10 @@
 			isa = PBXGroup;
 			children = (
 				707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */,
-				707E6C922F4C1FDE008CC120 /* MeasurementView.swift */,
-				704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */,
+				704E0A3C2F51A77D00366B4D /* View */,
 				704E0A3B2F519F6800366B4D /* Model */,
-				707E6C912F4C1FDE008CC120 /* Assets.xcassets */,
 				704E0A232F4F292400366B4D /* Info.plist */,
+				707E6C912F4C1FDE008CC120 /* Assets.xcassets */,
 			);
 			path = EyePhoneMeter;
 			sourceTree = "<group>";
