@@ -14,7 +14,7 @@ struct MeasurementView: View {
                 } else {
                     Text(String(eyePhoneMeter.distance))
                 }
-                ARViewContainer(sessionManager: eyePhoneMeter)
+                ARViewContainer(eyePhoneMeter: eyePhoneMeter)
                     .aspectRatio(3 / 4, contentMode: .fit)
                     .frame(maxWidth: .infinity)
             }

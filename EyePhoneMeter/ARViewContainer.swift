@@ -3,12 +3,12 @@ import ARKit
 import RealityKit
 
 struct ARViewContainer: UIViewRepresentable {
-    let sessionManager: ARSessionManager
+    let eyePhoneMeter: EyePhoneMeter
     
     func makeUIView(context: Context) -> some UIView {
         // 内部的にARSessionを生成
         let arView = ARView(frame: .zero)
-        arView.session.delegate = sessionManager
+        arView.session.delegate = eyePhoneMeter
         // Faceにすることで内カメラ推奨になる
         let config = ARFaceTrackingConfiguration()
         config.worldAlignment = .camera
