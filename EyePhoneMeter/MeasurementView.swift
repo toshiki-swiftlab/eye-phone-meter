@@ -3,17 +3,18 @@ import ARKit
 import RealityKit
 
 struct MeasurementView: View {
-    @Environment(ARSessionManager.self) private var sessionManager
+    
+    @State private var eyePhoneMeter = EyePhoneMeter()
     
     var body: some View {
         if ARFaceTrackingConfiguration.isSupported {
             VStack {
-                if sessionManager.distance <= 0 {
+                if eyePhoneMeter.distance <= 0 {
                     Text("測定不能")
                 } else {
-                    Text(String(sessionManager.distance))
+                    Text(String(eyePhoneMeter.distance))
                 }
-                ARViewContainer(sessionManager: sessionManager)
+                ARViewContainer(sessionManager: eyePhoneMeter)
                     .aspectRatio(3 / 4, contentMode: .fit)
                     .frame(maxWidth: .infinity)
             }
