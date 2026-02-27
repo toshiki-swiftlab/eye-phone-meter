@@ -5,16 +5,28 @@ import Observation
 final class EyePhoneMeter: NSObject, ARSessionDelegate {
     var distance = 0
     
+    // NOTE: 検証メモ
+    // - 複数人映っても、anchors.count: 1
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        guard let faceAnchor = anchors.first(where: { $0 is ARFaceAnchor }) as? ARFaceAnchor else { return }
+        guard let faceAnchor = anchors.compactMap({ $0 as? ARFaceAnchor }).first else { return }
+        // カメラ外（anchors.countは0にならない）
         if !faceAnchor.isTracked {
             distance = 0
             return
         }
         
-        let position = faceAnchor.transform.columns.3
-        let currentDistance = sqrt(pow(position.x, 2) + pow(position.y, 2) + pow(position.z, 2))
+        // カメラ → 顔の中心への行列（親）
+        let cameraToFaceMatrix = faceAnchor.transform
+        // 顔の中心 → 左目への行列（子）
+        let faceToLeftEyeMatrix = faceAnchor.leftEyeTransform
         
-        self.distance = Int(currentDistance * 100)
+        // カメラ → 左目への行列（親 * 子）
+        let cameraToLeftEyeMatrix = cameraToFaceMatrix * faceToLeftEyeMatrix
+        let _distance = abs(cameraToLeftEyeMatrix.columns.3.z)
+        
+        // UIを更新
+        DispatchQueue.main.async {
+            self.distance = Int(_distance * 100)
+        }
     }
 }
