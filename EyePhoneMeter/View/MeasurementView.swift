@@ -9,10 +9,12 @@ struct MeasurementView: View {
     var body: some View {
         if ARFaceTrackingConfiguration.isSupported {
             VStack {
-                if eyePhoneMeter.distance <= 0 {
-                    Text("測定不能")
-                } else {
-                    Text(String(eyePhoneMeter.distance))
+                switch eyePhoneMeter.status {
+                case .normal:
+                    Text("判定：およそ\(eyePhoneMeter.distance)cm")
+                        .opacity(0.7)
+                case .multiplePeople, .notTracking:
+                    Text(eyePhoneMeter.status.description ?? "")
                 }
                 ARViewContainer(eyePhoneMeter: eyePhoneMeter)
                     .aspectRatio(3 / 4, contentMode: .fit)
