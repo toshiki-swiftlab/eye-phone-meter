@@ -11,7 +11,7 @@ struct MeasurementView: View {
             VStack {
                 switch eyePhoneMeter.status {
                 case .good, .tooClose:
-                    Text(eyePhoneMeter.description)
+                    Text(eyePhoneMeter.status.description)
                         .font(.title)
                         .bold()
                         .foregroundStyle(eyePhoneMeter.status.color)

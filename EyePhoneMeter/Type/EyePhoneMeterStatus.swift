@@ -6,7 +6,7 @@ enum EyePhoneMeterStatus {
     case multiplePeople
     case notTracking
     
-    var description: String? {
+    var description: String {
         switch self {
         case .good: return "良い位置です！"
         case .tooClose: return "近いです！"
