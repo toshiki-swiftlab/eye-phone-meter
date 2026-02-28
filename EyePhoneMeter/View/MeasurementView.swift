@@ -30,6 +30,7 @@ struct MeasurementView: View {
                 ARViewContainer(eyePhoneMeter: eyePhoneMeter)
                     .aspectRatio(3 / 4, contentMode: .fit)
                     .frame(maxWidth: .infinity)
+                Spacer()
             }
         } else {
             Text("ご利用の端末ではTrueDepthカメラが搭載されていません。")
