@@ -21,6 +21,10 @@ struct MeasurementView: View {
                         .opacity(0.7)
                 case .multiplePeople, .notTracking:
                     Text(eyePhoneMeter.status.description)
+                        .padding()
+                        .background(Color.yellow.opacity(0.3))
+                        .clipShape(.capsule)
+                        .foregroundStyle(.yellow)
                 }
                 Spacer()
                 ARViewContainer(eyePhoneMeter: eyePhoneMeter)

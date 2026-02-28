@@ -10,8 +10,8 @@ enum EyePhoneMeterStatus {
         switch self {
         case .good: return "良い位置です！"
         case .tooClose: return "近いです！"
-        case .multiplePeople: return "正確な測定のため、1人で写って下さい！"
-        case .notTracking: return "顔を正面に向けて下さい！"
+        case .multiplePeople: return "正確な測定のため、1人で写って下さい。"
+        case .notTracking: return "顔を正面に向けて下さい。"
         }
     }
     
