@@ -4,7 +4,7 @@ import Observation
 @Observable
 final class EyePhoneMeter: NSObject, ARSessionDelegate {
     var distance = 0
-    var status: EyePhoneMeterStatus = .normal
+    var status: EyePhoneMeterStatus = .good
     
     // NOTE: 検証メモ
     // - 複数人映っても、anchors.count: 1
@@ -36,7 +36,11 @@ final class EyePhoneMeter: NSObject, ARSessionDelegate {
         // UIを更新
         DispatchQueue.main.async {
             self.distance = Int(_distance * 100)
-            self.status = .normal
+            if 30 <= self.distance {
+                self.status = .good
+            } else {
+                self.status = .tooClose
+            }
         }
     }
 }

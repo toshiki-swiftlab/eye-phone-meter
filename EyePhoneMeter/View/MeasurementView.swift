@@ -10,7 +10,12 @@ struct MeasurementView: View {
         if ARFaceTrackingConfiguration.isSupported {
             VStack {
                 switch eyePhoneMeter.status {
-                case .normal:
+                case .good, .tooClose:
+                    Text(eyePhoneMeter.description)
+                        .font(.title)
+                        .bold()
+                        .foregroundStyle(eyePhoneMeter.status.color)
+                    
                     Text("判定：およそ\(eyePhoneMeter.distance)cm")
                         .opacity(0.7)
                 case .multiplePeople, .notTracking:

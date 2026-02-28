@@ -1,14 +1,30 @@
+import SwiftUI
+
 enum EyePhoneMeterStatus {
-    case normal
+    case good
+    case tooClose
     case multiplePeople
     case notTracking
     
-    // NOTE: アクションプランにする
     var description: String? {
         switch self {
-        case .normal: return nil
+        case .good: return "良い位置です！"
+        case .tooClose: return "近いです！"
         case .multiplePeople: return "正確な測定のため、1人で写って下さい！"
         case .notTracking: return "顔を正面に向けて下さい！"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .good:
+            return .green
+        case .tooClose:
+            return .red
+        case .multiplePeople:
+            return .yellow
+        case .notTracking:
+            return .yellow
         }
     }
 }
