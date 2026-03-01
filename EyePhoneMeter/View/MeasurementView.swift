@@ -6,6 +6,8 @@ struct MeasurementView: View {
     
     @State private var eyePhoneMeter = EyePhoneMeter()
     
+    @State private var settingsView = false
+    
     var body: some View {
         if ARFaceTrackingConfiguration.isSupported {
             VStack {
@@ -30,22 +32,31 @@ struct MeasurementView: View {
                     .frame(maxWidth: .infinity)
                 HStack {
                     Spacer()
-                    Button(action: {
-                        
-                    }, label: {
-                        Image(systemName: "gearshape.fill")
-                            .font(.system(size: 24))
-                            .padding(8)
-                    })
+                    Button(
+                        action: onGearButton,
+                        label: {
+                            Image(systemName: "gearshape.fill")
+                                .font(.system(size: 24))
+                                .padding(8)
+                        }
+                    )
                     .buttonStyle(.glass)
                     .buttonBorderShape(.circle)
                     Spacer()
                 }
                 .padding(.vertical)
             }
+            .sheet(isPresented: $settingsView) {
+                SettingsView()
+                    .presentationDetents([.medium, .large])
+            }
         } else {
             Text("ご利用の端末ではTrueDepthカメラが搭載されていません。")
         }
+    }
+    
+    private func onGearButton() {
+        settingsView = true
     }
 }
 
