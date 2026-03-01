@@ -13,24 +13,35 @@ struct MeasurementView: View {
                 switch eyePhoneMeter.status {
                 case .good, .tooClose:
                     Text(eyePhoneMeter.status.description)
-                        .font(.title)
-                        .bold()
+                        .padding()
+                        .background(eyePhoneMeter.status.color.opacity(0.3))
+                        .clipShape(.capsule)
                         .foregroundStyle(eyePhoneMeter.status.color)
-                    
+                        .bold()
                     Text("判定：およそ\(eyePhoneMeter.distance)cm")
-                        .opacity(0.7)
+                        .foregroundStyle(.secondary)
                 case .multiplePeople, .notTracking:
                     Text(eyePhoneMeter.status.description)
-                        .padding()
-                        .background(Color.yellow.opacity(0.3))
-                        .clipShape(.capsule)
-                        .foregroundStyle(.yellow)
+                        .font(.headline)
                 }
                 Spacer()
                 ARViewContainer(eyePhoneMeter: eyePhoneMeter)
                     .aspectRatio(3 / 4, contentMode: .fit)
                     .frame(maxWidth: .infinity)
-                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "gearshape.fill")
+                            .font(.system(size: 24))
+                            .padding(8)
+                    })
+                    .buttonStyle(.glass)
+                    .buttonBorderShape(.circle)
+                    Spacer()
+                }
+                .padding(.vertical)
             }
         } else {
             Text("ご利用の端末ではTrueDepthカメラが搭載されていません。")
