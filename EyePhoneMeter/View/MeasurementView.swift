@@ -3,9 +3,12 @@ import ARKit
 import RealityKit
 
 struct MeasurementView: View {
+    
+    @State private var cameraManager = CameraAccessManager.shared
+    
     var body: some View {
         if ARFaceTrackingConfiguration.isSupported {
-            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            switch cameraManager.status {
             case .authorized:
                 ContentView()
             case .denied:
