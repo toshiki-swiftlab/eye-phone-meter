@@ -96,8 +96,9 @@ struct UnavailableView: View {
     var body: some View {
         VStack(spacing: 8) {
             Image(systemName: systemIconName)
-                .font(.system(size: 80))
+                .font(.system(size: 60))
             Text(message)
+                .font(.system(size: 18))
                 .bold()
         }
         .foregroundStyle(.secondary)
