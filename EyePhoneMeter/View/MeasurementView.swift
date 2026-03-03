@@ -94,13 +94,14 @@ struct UnavailableView: View {
     let message: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             Image(systemName: systemIconName)
-                .font(.title)
+                .font(.system(size: 80))
             Text(message)
                 .bold()
         }
         .foregroundStyle(.secondary)
+        .padding(.horizontal)
     }
 }
 
