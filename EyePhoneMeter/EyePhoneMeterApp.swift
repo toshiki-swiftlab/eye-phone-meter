@@ -8,6 +8,7 @@ struct EyePhoneMeterApp: App {
     var body: some Scene {
         WindowGroup {
             MeasurementView()
+                .preferredColorScheme(.dark)
                 .task {
                     await CameraAccessManager.shared.requestAccessIfNeeded()
                 }
