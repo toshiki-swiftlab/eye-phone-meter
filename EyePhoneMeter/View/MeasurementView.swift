@@ -4,6 +4,8 @@ import RealityKit
 
 struct MeasurementView: View {
     
+    @Environment(\.openURL) private var openURL
+    
     @State private var cameraManager = CameraAccessManager.shared
     
     var body: some View {
@@ -12,10 +14,23 @@ struct MeasurementView: View {
             case .authorized:
                 ContentView()
             case .denied:
-                UnavailableView(
-                    systemIconName: "camera",
-                    message: "カメラのアクセスを許可して下さい。"
-                )
+                VStack(spacing: 16) {
+                    UnavailableView(
+                        systemIconName: "camera",
+                        message: "カメラのアクセスを許可して下さい。"
+                    )
+                    Button(
+                        action: {
+                            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                            if UIApplication.shared.canOpenURL(url) {
+                                openURL(url)
+                            }
+                        }, label: {
+                            Label("設定を開く", systemImage: "gearshape")
+                                .bold()
+                        }
+                    )
+                }
             case .restricted:
                 UnavailableView(
                     systemIconName: "camera",
