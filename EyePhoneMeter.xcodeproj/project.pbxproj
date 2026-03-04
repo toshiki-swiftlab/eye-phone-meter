@@ -334,7 +334,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EyePhoneMeter/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "目とスマホのメーター";
+				INFOPLIST_KEY_CFBundleDisplayName = "目とスマホ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "目とiPhoneの距離を測るため、カメラを許可してください！";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -370,7 +370,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EyePhoneMeter/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "目とスマホのメーター";
+				INFOPLIST_KEY_CFBundleDisplayName = "目とスマホ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "目とiPhoneの距離を測るため、カメラを許可してください！";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
