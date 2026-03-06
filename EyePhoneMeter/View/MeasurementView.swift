@@ -55,6 +55,7 @@ struct ContentView: View {
     @State private var eyePhoneMeter = EyePhoneMeter()
     
     @State private var settingsView = false
+    @State private var isImpactOccurred = false
     
     var body: some View {
         VStack {
@@ -92,6 +93,14 @@ struct ContentView: View {
                 Spacer()
             }
             .padding(.vertical)
+        }
+        .sensoryFeedback(.success, trigger: isImpactOccurred)
+        .onChange(of: eyePhoneMeter.status) { oldValue, newValue in
+            if (oldValue == .tooClose && newValue == .good) {
+                isImpactOccurred.toggle()
+            } else if (oldValue == .good && newValue == .tooClose) {
+                isImpactOccurred.toggle()
+            }
         }
         .sheet(isPresented: $settingsView) {
             SettingsView()
