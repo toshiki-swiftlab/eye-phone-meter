@@ -336,7 +336,7 @@
 				INFOPLIST_FILE = EyePhoneMeter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "目とスマホ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSCameraUsageDescription = "目とiPhoneの距離を測るため、カメラを許可してください！";
+				INFOPLIST_KEY_NSCameraUsageDescription = "目とiPhone / iPadの距離を測るため、カメラを許可してください！";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -376,7 +376,7 @@
 				INFOPLIST_FILE = EyePhoneMeter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "目とスマホ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSCameraUsageDescription = "目とiPhoneの距離を測るため、カメラを許可してください！";
+				INFOPLIST_KEY_NSCameraUsageDescription = "目とiPhone / iPadの距離を測るため、カメラを許可してください！";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
