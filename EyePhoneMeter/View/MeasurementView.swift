@@ -61,18 +61,23 @@ struct ContentView: View {
         VStack {
             Spacer()
             switch eyePhoneMeter.status {
-            case .good, .tooClose:
-                Text(eyePhoneMeter.status.description)
-                    .padding()
-                    .background(eyePhoneMeter.status.color.opacity(0.3))
-                    .clipShape(.capsule)
-                    .foregroundStyle(eyePhoneMeter.status.color)
-                    .bold()
-                Text("判定：およそ\(eyePhoneMeter.distance)cm")
-                    .foregroundStyle(.secondary)
-            case .multiplePeople, .notTracking:
-                Text(eyePhoneMeter.status.description)
-                    .font(.headline)
+            case .some(let status):
+                switch status {
+                case .good, .tooClose:
+                    Text(status.description)
+                        .padding()
+                        .background(status.color.opacity(0.3))
+                        .clipShape(.capsule)
+                        .foregroundStyle(status.color)
+                        .bold()
+                    Text("判定：およそ\(eyePhoneMeter.distance)cm")
+                        .foregroundStyle(.secondary)
+                case .multiplePeople, .notTracking:
+                    Text(eyePhoneMeter.status!.description)
+                        .font(.headline)
+                }
+            case .none:
+                EmptyView()
             }
             Spacer()
             ARViewContainer(eyePhoneMeter: eyePhoneMeter)

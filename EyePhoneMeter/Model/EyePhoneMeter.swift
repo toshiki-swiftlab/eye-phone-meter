@@ -4,7 +4,7 @@ import Observation
 @Observable
 final class EyePhoneMeter: NSObject, ARSessionDelegate {
     var distance = 0
-    var status: EyePhoneMeterStatus = .good
+    var status: EyePhoneMeterStatus? = nil
     
     // NOTE: 検証メモ
     // - 複数人映っても、anchors.count: 1
