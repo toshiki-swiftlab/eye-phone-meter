@@ -34,7 +34,8 @@ final class EyePhoneMeter: NSObject, ARSessionDelegate {
         let _distance = abs(cameraToLeftEyeMatrix.columns.3.z)
         
         // UIを更新
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
             self.distance = Int(_distance * 100)
             let goalValue = UserDefaults.standard.object(forKey: UserDefaults.Keys.goalValue) as? Int ?? 30
             if goalValue <= self.distance {
