@@ -101,9 +101,7 @@ struct ContentView: View {
         }
         .sensoryFeedback(.success, trigger: isImpactOccurred)
         .onChange(of: eyePhoneMeter.status) { oldValue, newValue in
-            if (oldValue == .tooClose && newValue == .good) {
-                isImpactOccurred.toggle()
-            } else if (oldValue == .good && newValue == .tooClose) {
+            if (oldValue == .tooClose && newValue == .good) || (oldValue == .good && newValue == .tooClose) {
                 isImpactOccurred.toggle()
             }
         }
