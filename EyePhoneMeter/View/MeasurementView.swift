@@ -44,7 +44,7 @@ struct MeasurementView: View {
         } else {
             UnavailableView(
                 systemIconName: "person.and.background.dotted",
-                message: "ご利用のiPhone/iPadにはTrueDepthカメラが搭載されていません。"
+                message: "ご利用のiPhoneにはTrueDepthカメラが搭載されていません。"
             )
         }
     }
