@@ -54,7 +54,6 @@ struct ContentView: View {
     
     @State private var eyePhoneMeter = EyePhoneMeter()
     
-    @State private var settingsView = false
     @State private var isImpactOccurred = false
     
     var body: some View {
@@ -83,21 +82,7 @@ struct ContentView: View {
             ARViewContainer(eyePhoneMeter: eyePhoneMeter)
                 .aspectRatio(3 / 4, contentMode: .fit)
                 .frame(maxWidth: .infinity)
-            HStack {
-                Spacer()
-                Button(
-                    action: onGearButton,
-                    label: {
-                        Image(systemName: "gearshape.fill")
-                            .font(.system(size: 24))
-                            .padding(8)
-                    }
-                )
-                .buttonStyle(.glass)
-                .buttonBorderShape(.circle)
-                Spacer()
-            }
-            .padding(.vertical)
+                .padding(.bottom, 32)
         }
         .sensoryFeedback(.success, trigger: isImpactOccurred)
         .onChange(of: eyePhoneMeter.status) { oldValue, newValue in
@@ -105,14 +90,6 @@ struct ContentView: View {
                 isImpactOccurred.toggle()
             }
         }
-        .sheet(isPresented: $settingsView) {
-            SettingsView()
-                .presentationDetents([.medium, .large])
-        }
-    }
-    
-    private func onGearButton() {
-        settingsView = true
     }
 }
 
