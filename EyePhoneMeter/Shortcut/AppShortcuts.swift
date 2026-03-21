@@ -8,7 +8,7 @@ struct AppShortcuts: AppShortcutsProvider {
                 phrases: [
                     "\(.applicationName)で顔の距離を測定",
                 ],
-                shortTitle: "アプリを開く2",
+                shortTitle: "アプリを開く",
                 systemImageName: "eyes"
             )
         ]

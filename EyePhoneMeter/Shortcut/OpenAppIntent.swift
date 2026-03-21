@@ -2,7 +2,7 @@ import AppIntents
 
 struct OpenAppIntent: AppIntent {
     static var title: LocalizedStringResource = "アプリを開く"
-    static var description = IntentDescription("「目とスマホ」アプリを起動します。")
+    static var description = IntentDescription("「目とスマホ」アプリを開きます。")
     
     static var supportedModes: IntentModes {
         return .foreground
