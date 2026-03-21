@@ -22,7 +22,7 @@ struct EyePhoneMeterApp: App {
                 )
                 Tab(
                     content: {
-                        Text("タイマー画面")
+                        TimerView()
                     },
                     label: {
                         Label("休息タイマー", systemImage: "leaf")
