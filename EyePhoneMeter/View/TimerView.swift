@@ -18,20 +18,24 @@ struct TimerView: View {
                 Button(
                     action: onStartButton,
                     label: {
-                        Label("20分の繰り返しタイマーを開始", systemImage: "play.fill")
+                        Label("20分の繰り返しタイマーを開始", systemImage: "play")
+                            .bold()
                     }
                 )
                 .buttonStyle(.glassProminent)
                 .buttonBorderShape(.capsule)
+                .tint(.blue)
             case .some(true):
                 Button(
                     action: onStopButton,
                     label: {
-                        Label("20分の繰り返しタイマーを停止", systemImage: "stop.fill")
+                        Label("20分の繰り返しタイマーを停止", systemImage: "stop")
+                            .bold()
                     }
                 )
                 .buttonStyle(.glassProminent)
                 .buttonBorderShape(.capsule)
+                .tint(.red)
             }
         }
         .alert("エラー", isPresented: $errorAlert, actions: {}, message: {
