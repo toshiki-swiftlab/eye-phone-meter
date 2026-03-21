@@ -7,11 +7,36 @@ struct EyePhoneMeterApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MeasurementView()
-                .preferredColorScheme(.dark)
-                .task {
-                    await CameraAccessManager.shared.requestAccessIfNeeded()
-                }
+            TabView {
+                Tab(
+                    content: {
+                        MeasurementView()
+                            .preferredColorScheme(.dark)
+                            .task {
+                                await CameraAccessManager.shared.requestAccessIfNeeded()
+                            }
+                    },
+                    label: {
+                        Label("計測", systemImage: "eyes")
+                    }
+                )
+                Tab(
+                    content: {
+                        Text("タイマー画面")
+                    },
+                    label: {
+                        Label("休息タイマー", systemImage: "leaf")
+                    }
+                )
+                Tab(
+                    content: {
+                        SettingsView()
+                    },
+                    label: {
+                        Label("その他", systemImage: "gearshape")
+                    }
+                )
+            }
         }
         .onChange(of: scenePhase) { _, newValue in
             if newValue == .active {
