@@ -114,12 +114,20 @@
 				704E0A462F55C2EF00366B4D /* Manager */,
 				704E0A3D2F52635300366B4D /* Type */,
 				704E0A432F5465A200366B4D /* Extension */,
-				706631542F5EAE5E00CF9D85 /* AppShortcuts.swift */,
-				706631562F5EC72C00CF9D85 /* OpenAppIntent.swift */,
+				70F71E892F6E7988004532E3 /* Shortcut */,
 				704E0A232F4F292400366B4D /* Info.plist */,
 				707E6C912F4C1FDE008CC120 /* Assets.xcassets */,
 			);
 			path = EyePhoneMeter;
+			sourceTree = "<group>";
+		};
+		70F71E892F6E7988004532E3 /* Shortcut */ = {
+			isa = PBXGroup;
+			children = (
+				706631542F5EAE5E00CF9D85 /* AppShortcuts.swift */,
+				706631562F5EC72C00CF9D85 /* OpenAppIntent.swift */,
+			);
+			path = Shortcut;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
