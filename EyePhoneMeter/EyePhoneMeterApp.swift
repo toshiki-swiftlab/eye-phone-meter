@@ -5,6 +5,10 @@ struct EyePhoneMeterApp: App {
     
     @Environment(\.scenePhase) private var scenePhase
     
+    init() {
+        UNUserNotificationCenter.current().delegate = NotificationManager.shared
+    }
+    
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -18,14 +22,6 @@ struct EyePhoneMeterApp: App {
                     },
                     label: {
                         Label("計測", systemImage: "eyes")
-                    }
-                )
-                Tab(
-                    content: {
-                        TimerView()
-                    },
-                    label: {
-                        Label("休息タイマー", systemImage: "leaf")
                     }
                 )
                 Tab(

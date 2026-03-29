@@ -6,6 +6,10 @@ struct SettingsView: View {
     
     @AppStorage(UserDefaults.Keys.goalValue) private var goalValue = 30
     
+    @State private var isTimerToggleOn = false
+    
+    @State private var errorAlert = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -20,6 +24,18 @@ struct SettingsView: View {
                             })
                         }
                     )
+                }
+                Section("タイマー") {
+                    Toggle("20分の繰り返しタイマー", isOn: $isTimerToggleOn)
+                        .onChange(of: isTimerToggleOn) { _, newValue in
+                            if newValue {
+                                // 通知をオン
+                                
+                                
+                            } else {
+                                // 通知をオフ
+                            }
+                        }
                 }
                 Section {
                     Button("お問い合わせ") {
@@ -59,6 +75,47 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .presentationDragIndicator(.visible)
+        .alert("エラー", isPresented: $errorAlert, actions: {}, message: {
+            Text("通知の作成に失敗しました。")
+        })
+    }
+    
+    private func onAppear() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
+            let isPending = requests.contains(where: { $0.identifier == NotificationID.repeat20m })
+            self.isTimerToggleOn = isPending
+        })
+    }
+    
+    private func onStartButton() {
+        Task {
+            do {
+                // 通知許可
+                try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .providesAppNotificationSettings])
+                // 通知作成
+                let content = UNMutableNotificationContent()
+                content.title = "20分経過"
+                content.body = "目を休憩させましょう！🌱"
+                content.categoryIdentifier = "20m-repeat-category"
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+                let request = UNNotificationRequest(identifier: NotificationID.repeat20m, content: content, trigger: trigger)
+                let category = UNNotificationCategory(
+                    identifier: "20m-repeat-category",
+                    actions: [UNNotificationAction(identifier: NotificationActionID.stopTimer, title: "タイマーを停止")],
+                    intentIdentifiers: ["timer"]
+                )
+                UNUserNotificationCenter.current().setNotificationCategories([category])
+                try await UNUserNotificationCenter.current().add(request)
+                isTimerToggleOn = true
+            } catch {
+                errorAlert = true
+            }
+        }
+    }
+    
+    private func onStopButton() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [NotificationID.repeat20m])
+        isTimerToggleOn = false
     }
 }
 

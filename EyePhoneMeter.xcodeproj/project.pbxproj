@@ -18,7 +18,8 @@
 		707E6C952F4C1FDE008CC120 /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707E6C922F4C1FDE008CC120 /* MeasurementView.swift */; };
 		707E6C962F4C1FDE008CC120 /* EyePhoneMeterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */; };
 		707E6C972F4C1FDE008CC120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707E6C912F4C1FDE008CC120 /* Assets.xcassets */; };
-		70F71E8B2F6E7F98004532E3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F71E8A2F6E7F98004532E3 /* TimerView.swift */; };
+		70F71E8D2F711F04004532E3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F71E8C2F711F04004532E3 /* NotificationManager.swift */; };
+		70F71E902F712267004532E3 /* NotificationID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F71E8F2F712267004532E3 /* NotificationID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,8 @@
 		707E6C912F4C1FDE008CC120 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		707E6C922F4C1FDE008CC120 /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
 		707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePhoneMeterApp.swift; sourceTree = "<group>"; };
-		70F71E8A2F6E7F98004532E3 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		70F71E8C2F711F04004532E3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		70F71E8F2F712267004532E3 /* NotificationID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationID.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,6 @@
 				707E6C922F4C1FDE008CC120 /* MeasurementView.swift */,
 				704E0A402F5464E500366B4D /* SettingsView.swift */,
 				704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */,
-				70F71E8A2F6E7F98004532E3 /* TimerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -88,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				704E0A472F55C30500366B4D /* CameraAccessManager.swift */,
+				70F71E8C2F711F04004532E3 /* NotificationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -116,6 +118,7 @@
 				704E0A3B2F519F6800366B4D /* Model */,
 				704E0A462F55C2EF00366B4D /* Manager */,
 				704E0A3D2F52635300366B4D /* Type */,
+				70F71E8E2F712244004532E3 /* Const */,
 				704E0A432F5465A200366B4D /* Extension */,
 				70F71E892F6E7988004532E3 /* Shortcut */,
 				704E0A232F4F292400366B4D /* Info.plist */,
@@ -131,6 +134,14 @@
 				706631562F5EC72C00CF9D85 /* OpenAppIntent.swift */,
 			);
 			path = Shortcut;
+			sourceTree = "<group>";
+		};
+		70F71E8E2F712244004532E3 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				70F71E8F2F712267004532E3 /* NotificationID.swift */,
+			);
+			path = Const;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,9 +222,10 @@
 				704E0A202F4F20E300366B4D /* ARViewContainer.swift in Sources */,
 				704E0A412F5464E600366B4D /* SettingsView.swift in Sources */,
 				706631572F5EC72C00CF9D85 /* OpenAppIntent.swift in Sources */,
-				70F71E8B2F6E7F98004532E3 /* TimerView.swift in Sources */,
+				70F71E8D2F711F04004532E3 /* NotificationManager.swift in Sources */,
 				704E0A3F2F52637100366B4D /* EyePhoneMeterStatus.swift in Sources */,
 				704E0A452F5465BA00366B4D /* UserDefaults+Extension.swift in Sources */,
+				70F71E902F712267004532E3 /* NotificationID.swift in Sources */,
 				706631552F5EAE5E00CF9D85 /* AppShortcuts.swift in Sources */,
 				704E0A222F4F239900366B4D /* EyePhoneMeter.swift in Sources */,
 			);
