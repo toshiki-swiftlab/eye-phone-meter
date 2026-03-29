@@ -30,10 +30,10 @@ struct SettingsView: View {
                         .onChange(of: isTimerToggleOn) { _, newValue in
                             if newValue {
                                 // 通知をオン
-                                
-                                
+                                onStopButton()
                             } else {
                                 // 通知をオフ
+                                onStopButton()
                             }
                         }
                 }
@@ -78,6 +78,9 @@ struct SettingsView: View {
         .alert("エラー", isPresented: $errorAlert, actions: {}, message: {
             Text("通知の作成に失敗しました。")
         })
+        .onAppear {
+            onAppear()
+        }
     }
     
     private func onAppear() {
