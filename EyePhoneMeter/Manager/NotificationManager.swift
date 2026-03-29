@@ -14,6 +14,11 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    // TODO: フォアグラウンド対応
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification
+    ) async -> UNNotificationPresentationOptions {
+        return [.sound, .banner, .list]
+    }
     
 }
