@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage(UserDefaults.Keys.goalValue) private var goalValue = 30
-    @State private var isTimerToggleOn = false
+    @State private var isTimerToggleOn: Bool?
     
     @State private var notificationErrorAlert = false
     
@@ -18,10 +18,18 @@ struct SettingsView: View {
                     })
                 }
                 Section("タイマー") {
-                    Toggle("20分の繰り返しタイマー", isOn: $isTimerToggleOn)
-                        .onChange(of: isTimerToggleOn) { _, newValue in
-                            onTimerToggleChange(newValue)
+                    HStack {
+                        Text("20分の繰り返しタイマー")
+                        Spacer()
+                        if let isOn = Binding($isTimerToggleOn) {
+                            Toggle("", isOn: isOn)
+                                .onChange(of: isOn.wrappedValue) { _, newValue in
+                                    onTimerToggleChange(newValue)
+                                }
+                        } else {
+                            ProgressView()
                         }
+                    }
                 }
                 Section {
                     Link("お問い合わせ", destination: URL(string: "https://forms.gle/2XKtw71deWyNV3oD9")!)
