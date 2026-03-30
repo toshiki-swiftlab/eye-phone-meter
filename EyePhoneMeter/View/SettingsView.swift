@@ -1,11 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
-    @Environment(\.openURL) private var openURL
-    
     @AppStorage(UserDefaults.Keys.goalValue) private var goalValue = 30
-    
     @State private var isTimerToggleOn = false
     
     @State private var errorAlert = false
@@ -32,29 +28,11 @@ struct SettingsView: View {
                         }
                 }
                 Section {
-                    Button("お問い合わせ") {
-                        let urlString = "https://forms.gle/2XKtw71deWyNV3oD9"
-                        guard let url = URL(string: urlString) else { return }
-                        if UIApplication.shared.canOpenURL(url) {
-                            openURL(url)
-                        }
-                    }
+                    Link("お問い合わせ", destination: URL(string: "https://forms.gle/2XKtw71deWyNV3oD9")!)
                 }
                 Section {
-                    Button("利用規約") {
-                        let urlString = "https://www.notion.so/319ba9d52164803facf4dc0b40e8c1e2"
-                        guard let url = URL(string: urlString) else { return }
-                        if UIApplication.shared.canOpenURL(url) {
-                            openURL(url)
-                        }
-                    }
-                    Button("プライバシーポリシー") {
-                        let urlString = "https://www.notion.so/319ba9d521648025846dc45c302ef691"
-                        guard let url = URL(string: urlString) else { return }
-                        if UIApplication.shared.canOpenURL(url) {
-                            openURL(url)
-                        }
-                    }
+                    Link("利用規約", destination: URL(string: "https://www.notion.so/319ba9d52164803facf4dc0b40e8c1e2")!)
+                    Link("プライバシーポリシー", destination: URL(string: "https://www.notion.so/319ba9d521648025846dc45c302ef691")!)
                 }
                 VStack(alignment: .leading, spacing: 4) {
                     Text("免責事項")
