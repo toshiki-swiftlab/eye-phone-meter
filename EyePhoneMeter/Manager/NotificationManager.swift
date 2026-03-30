@@ -5,8 +5,9 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     private override init() {}
     static let shared = NotificationManager()
     
-    func requestAuthorization() async throws {
-        try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .providesAppNotificationSettings])
+    func requestAuthorization() async throws -> Bool {
+        let isAuthorized = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .providesAppNotificationSettings])
+        return isAuthorized
     }
     
     func add20mRepeatNotification() async throws {

@@ -4,6 +4,7 @@ struct SettingsView: View {
     @AppStorage(UserDefaults.Keys.goalValue) private var goalValue = 30
     @State private var isTimerToggleOn: Bool?
     
+    @State private var notificationError: NotificationError?
     @State private var notificationErrorAlert = false
     
     var body: some View {
@@ -54,9 +55,20 @@ struct SettingsView: View {
         .task {
             task()
         }
-        .alert("エラー", isPresented: $notificationErrorAlert, actions: {}, message: {
-            Text("通知の作成に失敗しました。")
-        })
+        .alert(
+            isPresented: $notificationErrorAlert,
+            error: notificationError,
+            actions: { error in
+                switch error {
+                case .authorization:
+                    Link("通知を許可", destination: URL(string: UIApplication.openNotificationSettingsURLString)!)
+                default:
+                    Button("閉じる", role: .close, action: {})
+                }
+            }, message: { error in
+                Text(error.message ?? "エラーが発生しました。")
+            }
+        )
     }
     
     // MARK: - Life Cycle
@@ -81,10 +93,16 @@ struct SettingsView: View {
     private func startTimer() {
         Task {
             do {
-                try await NotificationManager.shared.requestAuthorization()
+                let isAuthorized = try await NotificationManager.shared.requestAuthorization()
+                if !isAuthorized {
+                    notificationError = .authorization
+                    notificationErrorAlert = true
+                    return
+                }
                 try await NotificationManager.shared.add20mRepeatNotification()
                 isTimerToggleOn = true
             } catch {
+                notificationError = .adding(message: error.localizedDescription)
                 notificationErrorAlert = true
             }
         }
@@ -98,4 +116,28 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+}
+
+enum NotificationError: LocalizedError {
+    case adding(message: String)
+    case authorization
+    
+    // タイトル
+    var errorDescription: String? {
+        switch self {
+        case .adding(_):
+            return "通知作成エラー"
+        case .authorization:
+            return "通知の許可がOFFです"
+        }
+    }
+    
+    var message: String? {
+        switch self {
+        case .adding(let message):
+            return message
+        case .authorization:
+            return "設定アプリを開いて、通知を許可してください"
+        }
+    }
 }
