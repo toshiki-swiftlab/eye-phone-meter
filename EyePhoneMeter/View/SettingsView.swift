@@ -28,13 +28,7 @@ struct SettingsView: View {
                 Section("タイマー") {
                     Toggle("20分の繰り返しタイマー", isOn: $isTimerToggleOn)
                         .onChange(of: isTimerToggleOn) { _, newValue in
-                            if newValue {
-                                // 通知をオン
-                                onStartButton()
-                            } else {
-                                // 通知をオフ
-                                onStopButton()
-                            }
+                            onTimerToggleChange(newValue)
                         }
                 }
                 Section {
@@ -94,7 +88,15 @@ struct SettingsView: View {
     
     // MARK: -Action
     
-    private func onStartButton() {
+    private func onTimerToggleChange(_ newValue: Bool) {
+        if newValue {
+            startTimer()
+        } else {
+            stopTimer()
+        }
+    }
+    
+    private func startTimer() {
         Task {
             do {
                 try await NotificationManager.shared.requestAuthorization()
@@ -106,7 +108,7 @@ struct SettingsView: View {
         }
     }
     
-    private func onStopButton() {
+    private func stopTimer() {
         NotificationManager.shared.remove20mRepeatNotification()
         isTimerToggleOn = false
     }
