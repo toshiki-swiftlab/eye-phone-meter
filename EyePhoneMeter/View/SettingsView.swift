@@ -4,22 +4,18 @@ struct SettingsView: View {
     @AppStorage(UserDefaults.Keys.goalValue) private var goalValue = 30
     @State private var isTimerToggleOn = false
     
-    @State private var errorAlert = false
+    @State private var notificationErrorAlert = false
     
     var body: some View {
         NavigationStack {
             List {
                 Section("計測") {
-                    Picker(
-                        "目標値",
-                        selection: $goalValue,
-                        content: {
-                            ForEach(20...100, id: \.self, content: { n in
-                                Text("\(n)cm")
-                                    .tag(n)
-                            })
-                        }
-                    )
+                    Picker("目標値", selection: $goalValue, content: {
+                        ForEach(20...100, id: \.self, content: { n in
+                            Text("\(n)cm")
+                                .tag(n)
+                        })
+                    })
                 }
                 Section("タイマー") {
                     Toggle("20分の繰り返しタイマー", isOn: $isTimerToggleOn)
@@ -47,12 +43,12 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .presentationDragIndicator(.visible)
-        .alert("エラー", isPresented: $errorAlert, actions: {}, message: {
-            Text("通知の作成に失敗しました。")
-        })
         .task {
             task()
         }
+        .alert("エラー", isPresented: $notificationErrorAlert, actions: {}, message: {
+            Text("通知の作成に失敗しました。")
+        })
     }
     
     // MARK: - Life Cycle
@@ -64,7 +60,7 @@ struct SettingsView: View {
         }
     }
     
-    // MARK: -Action
+    // MARK: - Action
     
     private func onTimerToggleChange(_ newValue: Bool) {
         if newValue {
@@ -81,7 +77,7 @@ struct SettingsView: View {
                 try await NotificationManager.shared.add20mRepeatNotification()
                 isTimerToggleOn = true
             } catch {
-                errorAlert = true
+                notificationErrorAlert = true
             }
         }
     }
