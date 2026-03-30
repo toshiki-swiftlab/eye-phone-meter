@@ -83,6 +83,8 @@ struct SettingsView: View {
         }
     }
     
+    // MARK: - Life Cycle
+    
     private func onAppear() {
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
             let isPending = requests.contains(where: { $0.identifier == NotificationID.repeat20m })
@@ -90,25 +92,13 @@ struct SettingsView: View {
         })
     }
     
+    // MARK: -Action
+    
     private func onStartButton() {
         Task {
             do {
-                // 通知許可
-                try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .providesAppNotificationSettings])
-                // 通知作成
-                let content = UNMutableNotificationContent()
-                content.title = "20分経過"
-                content.body = "目を休憩させましょう！🌱"
-                content.categoryIdentifier = NotificationCategoryID.timer
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 20, repeats: true)
-                let request = UNNotificationRequest(identifier: NotificationID.repeat20m, content: content, trigger: trigger)
-                let category = UNNotificationCategory(
-                    identifier: NotificationCategoryID.timer,
-                    actions: [UNNotificationAction(identifier: NotificationActionID.stopTimer, title: "タイマーを停止")],
-                    intentIdentifiers: [NotificationIntentID.timer]
-                )
-                UNUserNotificationCenter.current().setNotificationCategories([category])
-                try await UNUserNotificationCenter.current().add(request)
+                try await NotificationManager.shared.requestAuthorization()
+                try await NotificationManager.shared.add20mRepeatNotification()
                 isTimerToggleOn = true
             } catch {
                 errorAlert = true
@@ -117,7 +107,7 @@ struct SettingsView: View {
     }
     
     private func onStopButton() {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [NotificationID.repeat20m])
+        NotificationManager.shared.remove20mRepeatNotification()
         isTimerToggleOn = false
     }
 }
