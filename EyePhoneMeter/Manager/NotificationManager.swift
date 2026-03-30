@@ -14,10 +14,7 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        willPresent notification: UNNotification
-    ) async -> UNNotificationPresentationOptions {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         return [.sound, .banner, .list]
     }
     
