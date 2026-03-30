@@ -91,8 +91,9 @@ struct SettingsView: View {
     
     private func syncToggleWithNotification() {
         Task {
+            isTimerToggleOn = nil
             let isPending = await NotificationManager.shared.getIs20mRepeatPending()
-            self.isTimerToggleOn = isPending
+            isTimerToggleOn = isPending
         }
     }
     
