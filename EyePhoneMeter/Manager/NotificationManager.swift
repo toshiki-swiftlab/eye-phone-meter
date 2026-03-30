@@ -29,6 +29,13 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [NotificationID.repeat20m])
     }
     
+    func getIs20mRepeatPending(completion: @escaping (_ isPending: Bool) -> Void) {
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
+            let isPending = requests.contains(where: { $0.identifier == NotificationID.repeat20m })
+            completion(isPending)
+        })
+    }
+    
     // MARK: UNUserNotificationCenterDelegate
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {

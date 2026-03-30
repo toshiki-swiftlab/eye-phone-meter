@@ -86,8 +86,7 @@ struct SettingsView: View {
     // MARK: - Life Cycle
     
     private func onAppear() {
-        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests in
-            let isPending = requests.contains(where: { $0.identifier == NotificationID.repeat20m })
+        NotificationManager.shared.getIs20mRepeatPending(completion: { isPending in
             self.isTimerToggleOn = isPending
         })
     }
