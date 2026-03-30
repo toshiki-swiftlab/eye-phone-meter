@@ -13,9 +13,9 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("目標値") {
+                Section("計測") {
                     Picker(
-                        "",
+                        "目標値",
                         selection: $goalValue,
                         content: {
                             ForEach(20...100, id: \.self, content: { n in
