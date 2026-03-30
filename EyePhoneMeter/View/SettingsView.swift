@@ -62,6 +62,7 @@ struct SettingsView: View {
                 switch error {
                 case .authorization:
                     Link("通知を許可", destination: URL(string: UIApplication.openNotificationSettingsURLString)!)
+                    Button("閉じる", role: .close, action: {})
                 default:
                     Button("閉じる", role: .close, action: {})
                 }
@@ -95,6 +96,7 @@ struct SettingsView: View {
             do {
                 let isAuthorized = try await NotificationManager.shared.requestAuthorization()
                 if !isAuthorized {
+                    isTimerToggleOn = false
                     notificationError = .authorization
                     notificationErrorAlert = true
                     return
