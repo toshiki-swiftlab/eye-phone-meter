@@ -99,13 +99,13 @@ struct SettingsView: View {
                 let content = UNMutableNotificationContent()
                 content.title = "20分経過"
                 content.body = "目を休憩させましょう！🌱"
-                content.categoryIdentifier = "20m-repeat-category"
+                content.categoryIdentifier = NotificationCategoryID.timer
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
                 let request = UNNotificationRequest(identifier: NotificationID.repeat20m, content: content, trigger: trigger)
                 let category = UNNotificationCategory(
-                    identifier: "20m-repeat-category",
+                    identifier: NotificationCategoryID.timer,
                     actions: [UNNotificationAction(identifier: NotificationActionID.stopTimer, title: "タイマーを停止")],
-                    intentIdentifiers: ["timer"]
+                    intentIdentifiers: [NotificationIntentID.timer]
                 )
                 UNUserNotificationCenter.current().setNotificationCategories([category])
                 try await UNUserNotificationCenter.current().add(request)
