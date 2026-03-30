@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    
     @AppStorage(UserDefaults.Keys.goalValue) private var goalValue = 30
     @State private var isTimerToggleOn: Bool?
     
@@ -55,6 +57,9 @@ struct SettingsView: View {
         .task {
             task()
         }
+        .onChange(of: scenePhase) { _, newValue in
+            onScenePhaseChange(newValue)
+        }
         .alert(
             isPresented: $notificationErrorAlert,
             error: notificationError,
@@ -75,6 +80,16 @@ struct SettingsView: View {
     // MARK: - Life Cycle
     
     private func task() {
+        syncToggleWithNotification()
+    }
+    
+    private func onScenePhaseChange(_ newValue: ScenePhase) {
+        if newValue == .active {
+            syncToggleWithNotification()
+        }
+    }
+    
+    private func syncToggleWithNotification() {
         Task {
             let isPending = await NotificationManager.shared.getIs20mRepeatPending()
             self.isTimerToggleOn = isPending
