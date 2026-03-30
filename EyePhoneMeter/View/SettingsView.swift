@@ -100,7 +100,7 @@ struct SettingsView: View {
                 content.title = "20分経過"
                 content.body = "目を休憩させましょう！🌱"
                 content.categoryIdentifier = NotificationCategoryID.timer
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 20, repeats: true)
                 let request = UNNotificationRequest(identifier: NotificationID.repeat20m, content: content, trigger: trigger)
                 let category = UNNotificationCategory(
                     identifier: NotificationCategoryID.timer,
