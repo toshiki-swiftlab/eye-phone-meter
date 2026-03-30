@@ -30,7 +30,7 @@ struct SettingsView: View {
                         .onChange(of: isTimerToggleOn) { _, newValue in
                             if newValue {
                                 // 通知をオン
-                                onStopButton()
+                                onStartButton()
                             } else {
                                 // 通知をオフ
                                 onStopButton()
