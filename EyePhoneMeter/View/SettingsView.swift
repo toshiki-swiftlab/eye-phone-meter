@@ -78,17 +78,18 @@ struct SettingsView: View {
         .alert("エラー", isPresented: $errorAlert, actions: {}, message: {
             Text("通知の作成に失敗しました。")
         })
-        .onAppear {
-            onAppear()
+        .task {
+            task()
         }
     }
     
     // MARK: - Life Cycle
     
-    private func onAppear() {
-        NotificationManager.shared.getIs20mRepeatPending(completion: { isPending in
+    private func task() {
+        Task {
+            let isPending = await NotificationManager.shared.getIs20mRepeatPending()
             self.isTimerToggleOn = isPending
-        })
+        }
     }
     
     // MARK: -Action
