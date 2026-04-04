@@ -49,7 +49,7 @@ final class UserNotificationManager: NSObject, UNUserNotificationCenterDelegate 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         switch response.actionIdentifier {
         case UserNotificationActionID.stopTimer:
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [UserNotificationID.repeat20m])
+            remove20mRepeatNotification()
         default:
             break
         }
