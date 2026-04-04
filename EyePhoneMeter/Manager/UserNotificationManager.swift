@@ -38,7 +38,11 @@ final class UserNotificationManager: NSObject, UNUserNotificationCenterDelegate 
         }
     }
     
-    // MARK: UNUserNotificationCenterDelegate
+    // MARK: - UNUserNotificationCenterDelegate
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        return [.sound, .banner, .list]
+    }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
         switch response.actionIdentifier {
@@ -47,10 +51,6 @@ final class UserNotificationManager: NSObject, UNUserNotificationCenterDelegate 
         default:
             break
         }
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
-        return [.sound, .banner, .list]
     }
     
 }
