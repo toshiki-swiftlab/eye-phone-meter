@@ -30,13 +30,12 @@ final class UserNotificationManager: NSObject, UNUserNotificationCenterDelegate 
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [NotificationID.repeat20m])
     }
     
-    func getIs20mRepeatPending() async -> Bool {
-        print(1)
-        let requests = await UNUserNotificationCenter.current().pendingNotificationRequests()
-        print(2)
-        let isPending = requests.contains(where: { $0.identifier == NotificationID.repeat20m })
-        print(isPending)
-        return isPending
+    func getIs20mRepeatPending(completion: @escaping (_ isPending: Bool) -> Void) {
+        // async/awaitタイプでは、onChange(scenePhaseに限り、謎のクラッシュが発生した。
+        UNUserNotificationCenter.current().getPendingNotificationRequests { notificationRequests in
+            let isPending = notificationRequests.contains(where: { $0.identifier == NotificationID.repeat20m })
+            completion(isPending)
+        }
     }
     
     // MARK: UNUserNotificationCenterDelegate

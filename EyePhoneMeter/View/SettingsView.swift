@@ -90,11 +90,12 @@ struct SettingsView: View {
     }
     
     private func syncToggleWithNotification() {
-        Task {
-            isTimerToggleOn = nil
-            let isPending = await NotificationManager.shared.getIs20mRepeatPending()
-            isTimerToggleOn = isPending
-        }
+        isTimerToggleOn = nil
+        UserNotificationManager.shared.getIs20mRepeatPending(completion: { isPending in
+            DispatchQueue.main.async {
+                isTimerToggleOn = isPending
+            }
+        })
     }
     
     // MARK: - Action
