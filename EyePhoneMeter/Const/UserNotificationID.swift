@@ -1,15 +1,15 @@
-enum NotificationID {
+enum UserNotificationID {
     static let repeat20m = "20m-repeat"
 }
 
-enum NotificationCategoryID {
+enum UserNotificationCategoryID {
     static let timer = "timer"
 }
 
-enum NotificationActionID {
+enum UserNotificationActionID {
     static let stopTimer = "stopTimer"
 }
 
-enum NotificationIntentID {
+enum UserNotificationIntentID {
     static let timer = "timer"
 }
