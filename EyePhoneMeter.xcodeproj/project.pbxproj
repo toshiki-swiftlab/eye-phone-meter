@@ -19,7 +19,7 @@
 		707E6C962F4C1FDE008CC120 /* EyePhoneMeterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */; };
 		707E6C972F4C1FDE008CC120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707E6C912F4C1FDE008CC120 /* Assets.xcassets */; };
 		70F71E8D2F711F04004532E3 /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F71E8C2F711F04004532E3 /* UserNotificationManager.swift */; };
-		70F71E902F712267004532E3 /* NotificationID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F71E8F2F712267004532E3 /* NotificationID.swift */; };
+		70F71E902F712267004532E3 /* UserNotificationID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F71E8F2F712267004532E3 /* UserNotificationID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		707E6C922F4C1FDE008CC120 /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
 		707E6C932F4C1FDE008CC120 /* EyePhoneMeterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePhoneMeterApp.swift; sourceTree = "<group>"; };
 		70F71E8C2F711F04004532E3 /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
-		70F71E8F2F712267004532E3 /* NotificationID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationID.swift; sourceTree = "<group>"; };
+		70F71E8F2F712267004532E3 /* UserNotificationID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationID.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +139,7 @@
 		70F71E8E2F712244004532E3 /* Const */ = {
 			isa = PBXGroup;
 			children = (
-				70F71E8F2F712267004532E3 /* NotificationID.swift */,
+				70F71E8F2F712267004532E3 /* UserNotificationID.swift */,
 			);
 			path = Const;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				70F71E8D2F711F04004532E3 /* UserNotificationManager.swift in Sources */,
 				704E0A3F2F52637100366B4D /* EyePhoneMeterStatus.swift in Sources */,
 				704E0A452F5465BA00366B4D /* UserDefaults+Extension.swift in Sources */,
-				70F71E902F712267004532E3 /* NotificationID.swift in Sources */,
+				70F71E902F712267004532E3 /* UserNotificationID.swift in Sources */,
 				706631552F5EAE5E00CF9D85 /* AppShortcuts.swift in Sources */,
 				704E0A222F4F239900366B4D /* EyePhoneMeter.swift in Sources */,
 			);
