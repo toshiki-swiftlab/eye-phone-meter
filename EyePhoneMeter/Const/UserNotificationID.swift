@@ -9,7 +9,3 @@ enum UserNotificationCategoryID {
 enum UserNotificationActionID {
     static let stopTimer = "stopTimer"
 }
-
-enum UserNotificationIntentID {
-    static let timer = "timer"
-}

@@ -20,7 +20,7 @@ final class UserNotificationManager: NSObject, UNUserNotificationCenterDelegate 
         let category = UNNotificationCategory(
             identifier: UserNotificationCategoryID.timer,
             actions: [UNNotificationAction(identifier: UserNotificationActionID.stopTimer, title: "タイマーを停止")],
-            intentIdentifiers: [UserNotificationIntentID.timer]
+            intentIdentifiers: []
         )
         UNUserNotificationCenter.current().setNotificationCategories([category])
         try await UNUserNotificationCenter.current().add(request)
