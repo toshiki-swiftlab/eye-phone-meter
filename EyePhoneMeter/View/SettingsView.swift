@@ -110,14 +110,14 @@ struct SettingsView: View {
     private func startTimer() {
         Task {
             do {
-                let isAuthorized = try await NotificationManager.shared.requestAuthorization()
+                let isAuthorized = try await UserNotificationManager.shared.requestAuthorization()
                 if !isAuthorized {
                     isTimerToggleOn = false
                     notificationError = .authorization
                     notificationErrorAlert = true
                     return
                 }
-                try await NotificationManager.shared.add20mRepeatNotification()
+                try await UserNotificationManager.shared.add20mRepeatNotification()
                 isTimerToggleOn = true
             } catch {
                 notificationError = .adding(message: error.localizedDescription)
@@ -127,7 +127,7 @@ struct SettingsView: View {
     }
     
     private func stopTimer() {
-        NotificationManager.shared.remove20mRepeatNotification()
+        UserNotificationManager.shared.remove20mRepeatNotification()
         isTimerToggleOn = false
     }
 }

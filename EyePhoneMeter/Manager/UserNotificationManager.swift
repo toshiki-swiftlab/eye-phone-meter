@@ -1,9 +1,9 @@
 import UserNotifications
 
-final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
+final class UserNotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     private override init() {}
-    static let shared = NotificationManager()
+    static let shared = UserNotificationManager()
     
     func requestAuthorization() async throws -> Bool {
         let isAuthorized = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .providesAppNotificationSettings])
@@ -31,8 +31,11 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func getIs20mRepeatPending() async -> Bool {
+        print(1)
         let requests = await UNUserNotificationCenter.current().pendingNotificationRequests()
+        print(2)
         let isPending = requests.contains(where: { $0.identifier == NotificationID.repeat20m })
+        print(isPending)
         return isPending
     }
     

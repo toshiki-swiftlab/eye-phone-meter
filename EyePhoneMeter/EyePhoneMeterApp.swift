@@ -6,7 +6,7 @@ struct EyePhoneMeterApp: App {
     @Environment(\.scenePhase) private var scenePhase
     
     init() {
-        UNUserNotificationCenter.current().delegate = NotificationManager.shared
+        UNUserNotificationCenter.current().delegate = UserNotificationManager.shared
     }
     
     var body: some Scene {
