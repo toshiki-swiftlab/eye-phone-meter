@@ -13,13 +13,13 @@ final class UserNotificationManager: NSObject, UNUserNotificationCenterDelegate 
     func add20mRepeatNotification() async throws {
         let content = UNMutableNotificationContent()
         content.title = "20分経過"
-        content.body = "目を休憩させましょう！🌱"
+        content.body = "目を休める時間です！🌱"
         content.categoryIdentifier = UserNotificationCategoryID.timer
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 20, repeats: true)
         let request = UNNotificationRequest(identifier: UserNotificationID.repeat20m, content: content, trigger: trigger)
         let category = UNNotificationCategory(
             identifier: UserNotificationCategoryID.timer,
-            actions: [UNNotificationAction(identifier: UserNotificationActionID.stopTimer, title: "タイマーを停止")],
+            actions: [UNNotificationAction(identifier: UserNotificationActionID.stopTimer, title: "タイマー停止", icon: UNNotificationActionIcon(systemImageName: "stop.circle"))],
             intentIdentifiers: []
         )
         UNUserNotificationCenter.current().setNotificationCategories([category])
