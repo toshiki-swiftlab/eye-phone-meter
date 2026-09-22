@@ -12,14 +12,7 @@ final class AmplitudeManager {
         let AMPLITUDE_API_KEY = Secrets.amplitudeAPIKey
         amplitude = Amplitude(configuration: Configuration(
             apiKey: AMPLITUDE_API_KEY,
-            autocapture: [
-                .sessions,
-                .appLifecycles,
-                .screenViews,
-                .elementInteractions,
-                .networkTracking,
-                .frustrationInteractions
-            ]
+            autocapture: []
         ))
     }
     
