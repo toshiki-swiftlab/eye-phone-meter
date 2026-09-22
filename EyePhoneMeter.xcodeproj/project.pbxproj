@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		702C45FC304BF3C900F7D100 /* AmplitudeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702C45FB304BF3C900F7D100 /* AmplitudeManager.swift */; };
+		702C4606304E46D000F7D100 /* AmplitudeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 702C4605304E46D000F7D100 /* AmplitudeSwift */; };
+		702C460A304E484A00F7D100 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702C4609304E484A00F7D100 /* Secrets.swift */; };
 		704E0A202F4F20E300366B4D /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */; };
 		704E0A222F4F239900366B4D /* EyePhoneMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E0A212F4F239900366B4D /* EyePhoneMeter.swift */; };
 		704E0A3F2F52637100366B4D /* EyePhoneMeterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E0A3E2F52637100366B4D /* EyePhoneMeterStatus.swift */; };
@@ -21,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		702C45FB304BF3C900F7D100 /* AmplitudeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
+		702C4609304E484A00F7D100 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		704E0A1F2F4F20E200366B4D /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		704E0A212F4F239900366B4D /* EyePhoneMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePhoneMeter.swift; sourceTree = "<group>"; };
 		704E0A232F4F292400366B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,12 +46,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				702C4606304E46D000F7D100 /* AmplitudeSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		702C4608304E481100F7D100 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				702C4609304E484A00F7D100 /* Secrets.swift */,
+			);
+			path = Const;
+			sourceTree = "<group>";
+		};
 		704E0A3B2F519F6800366B4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				704E0A472F55C30500366B4D /* CameraAccessManager.swift */,
+				702C45FB304BF3C900F7D100 /* AmplitudeManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -115,6 +130,7 @@
 				704E0A3D2F52635300366B4D /* Type */,
 				704E0A432F5465A200366B4D /* Extension */,
 				70F71E892F6E7988004532E3 /* Shortcut */,
+				702C4608304E481100F7D100 /* Const */,
 				704E0A232F4F292400366B4D /* Info.plist */,
 				707E6C912F4C1FDE008CC120 /* Assets.xcassets */,
 			);
@@ -147,6 +163,7 @@
 			);
 			name = EyePhoneMeter;
 			packageProductDependencies = (
+				702C4605304E46D000F7D100 /* AmplitudeSwift */,
 			);
 			productName = EyePhoneMeter;
 			productReference = 707E6C7D2F4C1C47008CC120 /* EyePhoneMeter.app */;
@@ -176,6 +193,9 @@
 			);
 			mainGroup = 707E6C742F4C1C47008CC120;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				702C4604304E46D000F7D100 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 707E6C7E2F4C1C47008CC120 /* Products */;
 			projectDirPath = "";
@@ -203,12 +223,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				707E6C952F4C1FDE008CC120 /* MeasurementView.swift in Sources */,
+				702C460A304E484A00F7D100 /* Secrets.swift in Sources */,
 				707E6C962F4C1FDE008CC120 /* EyePhoneMeterApp.swift in Sources */,
 				704E0A482F55C30500366B4D /* CameraAccessManager.swift in Sources */,
 				704E0A202F4F20E300366B4D /* ARViewContainer.swift in Sources */,
 				704E0A412F5464E600366B4D /* SettingsView.swift in Sources */,
 				706631572F5EC72C00CF9D85 /* OpenAppIntent.swift in Sources */,
 				704E0A3F2F52637100366B4D /* EyePhoneMeterStatus.swift in Sources */,
+				702C45FC304BF3C900F7D100 /* AmplitudeManager.swift in Sources */,
 				704E0A452F5465BA00366B4D /* UserDefaults+Extension.swift in Sources */,
 				706631552F5EAE5E00CF9D85 /* AppShortcuts.swift in Sources */,
 				704E0A222F4F239900366B4D /* EyePhoneMeter.swift in Sources */,
@@ -443,6 +465,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		702C4604304E46D000F7D100 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amplitude/Amplitude-Swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		702C4605304E46D000F7D100 /* AmplitudeSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 702C4604304E46D000F7D100 /* XCRemoteSwiftPackageReference "Amplitude-Swift" */;
+			productName = AmplitudeSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 707E6C752F4C1C47008CC120 /* Project object */;
 }

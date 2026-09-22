@@ -5,6 +5,11 @@ struct EyePhoneMeterApp: App {
     
     @Environment(\.scenePhase) private var scenePhase
     
+    init() {
+        AmplitudeManager.initAmplitude()
+        AmplitudeManager.trackEvent(eventName: "Log In")
+    }
+    
     var body: some Scene {
         WindowGroup {
             MeasurementView()
